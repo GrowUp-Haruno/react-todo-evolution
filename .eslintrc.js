@@ -4,13 +4,24 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    'plugin:react/recommended',
     'airbnb',
     'airbnb/hooks',
     'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:import/typescript',
     'prettier',
   ],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+    React: 'writable',
+  },
+  ignorePatterns: ['build'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -19,12 +30,18 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
     tsconfigRootDir: __dirname,
-    project: ['./tsconfig.json'],
+    project: './tsconfig.json',
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', '@typescript-eslint', 'import'],
   rules: {
+    '@typescript-eslint/indent': ['error', 2],
+    '@typescript-eslint/prefer-interface': 'off',
+    'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
+    'react/prop-types': 'off',
+    'spaced-comment': ['error', 'always', { markers: ['/ <reference'] }],
     'import/extensions': [
       'error',
+      'ignorePackages',
       {
         js: 'never',
         jsx: 'never',
@@ -32,26 +49,15 @@ module.exports = {
         tsx: 'never',
       },
     ],
-    'react/jsx-filename-extension': [
-      'error',
-      {
-        extensions: ['.jsx', '.tsx'],
-      },
-    ],
-    'react/react-in-jsx-scope': 'off',
-    'no-void': [
-      'error',
-      {
-        allowAsStatement: true,
-      },
-    ],
   },
   settings: {
     'import/resolver': {
       node: {
-        paths: ['src'],
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
+    },
+    react: {
+      version: 'detect',
     },
   },
 }

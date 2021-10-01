@@ -1,8 +1,8 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import logo from './logo.svg'
 import './App.css'
 
-const App: FC = () => (
+const App: FC = memo(() => (
   <div className="App">
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
@@ -14,6 +14,8 @@ const App: FC = () => (
       </a>
     </header>
   </div>
-)
+))
+
+App.displayName = 'App'
 
 export default App
