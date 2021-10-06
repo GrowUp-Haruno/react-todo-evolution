@@ -1,46 +1,85 @@
-# Getting Started with Create React App
+# 仕様書
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 概要
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+タスクの管理アプリ
 
-### `yarn start`
+ReactとReact Routerを用いてSPA(ログインページと操作ページ)を実装
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# デザイン概要
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+[https://www.figma.com/embed?embed_host=notion&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FRcvZ3rf2KkE3vzIwbBtjEE%2FSPA-TasksBook-%255C-Todos-(Community)%3Fnode-id%3D0%253A1](https://www.figma.com/embed?embed_host=notion&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FRcvZ3rf2KkE3vzIwbBtjEE%2FSPA-TasksBook-%255C-Todos-(Community)%3Fnode-id%3D0%253A1)
 
-### `yarn test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# GitHub リポジトリ
 
-### `yarn build`
+[GitHub - GrowUp-Haruno/react-todo-evolution: Issueをフル活用してReact/todoを進化させていく](https://github.com/GrowUp-Haruno/react-todo-evolution.git)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# 技術構成
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## フロントエンド
 
-### `yarn eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- React
+- React Router
+- CSS Grid
+- Styled Components
+- Chakra UI
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## バックエンド(Firebase)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Realtime Database
+- Authentication
 
-## Learn More
+## 調査中
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- グラフ機能
+- リアルタイム表示
+- カレンダー表示
+
+# フロントエンド構成
+
+---
+
+- それぞれをSPAとして構成する
+    - ログイン機能を有するログインページ
+    - Todoなどの情報を表示する操作ページ
+
+# バックエンド構成
+
+---
+
+- Firebase Authenticationを用いてログイン機能を実装する
+- ログイン状態の場合、Firebase Realtime Databaseから情報を取り出してい表示する
+    - データベースの構築次第ではRealtime Databaseから別の技術を使用する
+
+# 注意事項
+
+---
+
+Figmaのコミュニティデザインを使用しているため、下記の内容を記述すること
+
+- 作者様のウェブサイトへのリンク
+    
+    ![Hello.png](./readme/Hello.png)
+    
+
+文字列：Design by CupTeam
+
+URL: [https://cupteam.space/](https://cupteam.space/)
+
+[Головна CUPTeam WEB Design Studio * Студія веб дизайну - Створення сайтів для Вас!](https://cupteam.space/)
+
+- Creative Commonsのライセンス表示
+
+[Creative Commons - 表示 4.0 国際 - CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)
