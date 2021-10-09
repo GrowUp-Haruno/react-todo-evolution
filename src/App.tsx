@@ -1,16 +1,10 @@
 import { ChakraProvider, Grid, GridItem } from '@chakra-ui/react'
-import { FC, memo, useState } from 'react'
+import { FC, memo } from 'react'
 import Header from './components/layouts/Header'
+import useClock from './hooks/useClock'
 
 const App: FC = memo(() => {
-  const [time, setTime] = useState<string>('')
-  setInterval(() => {
-    const nowTime = new Date()
-    const nowHour = nowTime.getHours()
-    const nowMint = nowTime.getMinutes()
-    const nowSec = nowTime.getSeconds()
-    setTime(`現在時刻 ${nowHour}:${nowMint}:${nowSec}`)
-  }, 1000)
+  const { time } = useClock()
   return (
     <ChakraProvider>
       <Grid h="100vh" w="100vw" templateRows="repeat(12, 1fr)" templateColumns="repeat(12, 1fr)" gap={0}>
