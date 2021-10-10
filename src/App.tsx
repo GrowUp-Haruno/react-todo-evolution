@@ -7,12 +7,12 @@ const App: FC = memo(() => {
   const { time } = useClock()
   return (
     <ChakraProvider>
-      <Grid h="100vh" w="100vw" templateRows="repeat(12, 1fr)" templateColumns="repeat(12, 1fr)" gap={0}>
+      <Grid h="100vh" w="100vw" templateRows="1fr 10fr 1fr" gap={0}>
         <Header />
-        <GridItem rowStart={2} rowEnd={12} colStart={1} colEnd={13} bg="white">
+        <GridItem rowStart={2} rowEnd={3} bg="white">
           <p>{time}</p>
         </GridItem>
-        <GridItem rowStart={12} rowEnd={12} colStart={1} colEnd={13} bg="lightgray" />
+        <GridItem rowStart={3} rowEnd={4} bg="lightgray" />
       </Grid>
     </ChakraProvider>
   )

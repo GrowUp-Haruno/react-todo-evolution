@@ -7,7 +7,7 @@ import { FC } from 'react'
 // }
 
 const Header: FC = () => (
-  <GridItem rowStart={1} rowEnd={1} colStart={1} colEnd={13} bg="lightgray">
+  <GridItem rowStart={1} rowEnd={2} bg="lightgray">
     <p>test</p>
   </GridItem>
 )
