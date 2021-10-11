@@ -1,8 +1,5 @@
 import { useState } from 'react'
-
-type useClockType = () => {
-  time: string
-}
+import { useClockType } from '../types/hooksType'
 
 const useClock:useClockType = () => {
   const [time, setTime] = useState<string>('')
