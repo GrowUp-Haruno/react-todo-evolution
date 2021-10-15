@@ -1,17 +1,17 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useClockType } from '../types/hooksType'
 
-const useClock:useClockType = () => {
-  const [time, setTime] = useState<string>('')
-  setInterval(() => {
-    const nowTime = new Date()
-    const nowHour = nowTime.getHours()
-    const nowMint = nowTime.getMinutes()
-    const nowSec = nowTime.getSeconds()
-    setTime(`現在時刻 ${nowHour}:${nowMint}:${nowSec}`)
-  }, 1000)
+const useClock: useClockType = () => {
+  const [date, setDate] = useState<Date>(new Date())
 
-  return { time }
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDate(new Date())
+    }, 1000 - date.getMilliseconds())
+    return () => clearInterval(timer)
+  }, [date])
+
+  return { date }
 }
 
 export default useClock
